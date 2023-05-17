@@ -1,4 +1,4 @@
-using HiGHS, JuMP, JuMPModelPlotting
+using HiGHS, JuMP, Plots, JuMPModelPlotting
 
 # The paint factory problem
 pf = Model(HiGHS.Optimizer)
@@ -14,7 +14,8 @@ plt = plot_model(pf)
 
 optimize!(pf)
 # Has been solved, objective function line will be plotted
-plot_model(pf)
+plt = plot_model(pf)
+Plots.savefig(plt, (@__DIR__)*"\\paintfactory.png")
 
 # Make a version of the model with integer variables
 pf_int = Model(HiGHS.Optimizer)
@@ -28,4 +29,5 @@ pf_int = Model(HiGHS.Optimizer)
 
 set_silent(pf_int)
 optimize!(pf_int)
-plot_model(pf_int)
+plt_int = plot_model(pf_int)
+Plots.savefig(plt_int, (@__DIR__)*"\\paintfactory_int.png")

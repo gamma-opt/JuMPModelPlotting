@@ -31,8 +31,8 @@ function plot_feasibleregion(model)
     width = max_vals[1] - min_vals[1]
     height = max_vals[2] - min_vals[2]
 
-    xlim = [min_vals[1]-width/10, max_vals[1]+width/10]
-    ylim = [min_vals[2]-height/10, max_vals[2]+height/10]
+    xlim = [min_vals[1]-width/10, max_vals[1]+width/4]
+    ylim = [min_vals[2]-height/10, max_vals[2]+height/4]
 
 
     # If there are extreme rays, the feasible region is unbounded
